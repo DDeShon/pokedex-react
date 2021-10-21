@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import mockData from "./mockData";
+import { toFirstCharUppercase } from "./constants";
 import {
   AppBar,
   Toolbar,
@@ -25,9 +26,6 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
 });
-
-const toFirstCharUppercase = (name) =>
-  name.charAt(0).toUpperCase() + name.slice(1);
 
 const Pokedex = (props) => {
   const { history } = props;

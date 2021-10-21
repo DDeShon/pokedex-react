@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import mockData from "./mockData";
+import { toFirstCharUppercase } from "./constants";
 import { Typography } from "@material-ui/core";
 
 const Pokemon = (props) => {
@@ -12,7 +13,7 @@ const Pokemon = (props) => {
     const { name, id, species, height, weight, types, sprites } = pokemon;
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
     const { front_default } = sprites;
-    rturn(
+    return (
       <Typography variant="h1">
         {`${id}.`} {toFirstCharUppercase(name)}
         <img src={front_default} />
