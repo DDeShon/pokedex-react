@@ -1,11 +1,15 @@
 import React from "react";
+import mockData from "./mockData";
 
 const Pokemon = (props) => {
   const { match } = props;
   const { params } = match;
   const { pokemonId } = params;
+  const [pokemon, setPokemon] = useState(mockData[`${pokemonId}`]);
 
-  return <div>{`This is the Pokemon page for Pokemon # ${pokemonId}`}</div>;
+  return (
+
+  );
 };
 
 export default Pokemon;
