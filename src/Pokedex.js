@@ -19,8 +19,10 @@ const useStyles = makeStyles({
 
 const getPokemonCard = () => {
   return (
-    <Grid item xs={12} sm={4}>
-      <Card>Hi</Card>
+    <Grid item xs={4}>
+      <Card>
+        <CardContent>Hi</CardContent>
+      </Card>
     </Grid>
   );
 };
@@ -33,6 +35,9 @@ const Pokedex = () => {
         <Toolbar></Toolbar>
       </AppBar>
       <Grid container spacing={2} className={classes.pokedexContainer}>
+        {getPokemonCard()}
+        {getPokemonCard()}
+        {getPokemonCard()}
         {getPokemonCard()}
       </Grid>
     </>
