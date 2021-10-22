@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import mockData from "./mockData";
 import { toFirstCharUppercase } from "./constants";
-import { Typography } from "@material-ui/core";
+import { Typography, Link } from "@material-ui/core";
 
 const Pokemon = (props) => {
   const { match } = props;
@@ -21,6 +21,12 @@ const Pokemon = (props) => {
         </Typography>
         <img style={{ width: "300px", height: "300px" }} src={fullImageUrl} />
         <Typography variant="h3">Pokemon Info</Typography>
+        <Typography>
+          {"Species: "}
+          <Link href={species.url}>{species.name} </Link>
+        </Typography>
+        <Typography>Height: {height} </Typography>
+        <Typography>Weight: {weight} </Typography>
       </>
     );
   };
