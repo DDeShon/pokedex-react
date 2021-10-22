@@ -27,6 +27,12 @@ const Pokemon = (props) => {
         </Typography>
         <Typography>Height: {height} </Typography>
         <Typography>Weight: {weight} </Typography>
+        <Typography variant="h6"> Types: </Typography>
+        {types.map((typeInfo) => {
+          const { type } = typeInfo;
+          const { name } = type;
+          return <Typography key={name}> {`${name}`}</Typography>;
+        })}
       </>
     );
   };
