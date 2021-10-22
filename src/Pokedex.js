@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 const Pokedex = (props) => {
   const { history } = props;
   const classes = useStyles();
-  const [pokemonData, setPokemonData] = useState(mockData);
+  const [pokemonData, setPokemonData] = useState({});
 
   const getPokemonCard = (pokemonId) => {
     console.log(pokemonData[`${pokemonId}`]);
