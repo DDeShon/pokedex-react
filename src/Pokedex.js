@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mockData from "./mockData";
 import { toFirstCharUppercase } from "./constants";
 import {
@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 const useStyles = makeStyles({
   pokedexContainer: {
@@ -31,6 +32,15 @@ const Pokedex = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [pokemonData, setPokemonData] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=807`)
+      .then(function (response) {
+        const { data } = response;
+        const { results } = data;
+      });
+  }, []);
 
   const getPokemonCard = (pokemonId) => {
     console.log(pokemonData[`${pokemonId}`]);
