@@ -39,13 +39,21 @@ const Pokedex = (props) => {
       .then(function (response) {
         const { data } = response;
         const { results } = data;
+        const newPokemonData = {};
+        results.forEach((pokemon, index) => {
+          newPokemonData[index + 1] = {
+            id: index + 1,
+            name: pokemon.name,
+            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+          };
+        });
+        setPokemonData(newPokemonData);
       });
   }, []);
 
   const getPokemonCard = (pokemonId) => {
     console.log(pokemonData[`${pokemonId}`]);
-    const { id, name } = pokemonData[`${pokemonId}`];
-    const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    const { id, name, sprite } = pokemonData[`${pokemonId}`];
 
     return (
       <Grid item xs={4} key={pokemonId}>
