@@ -11,13 +11,17 @@ const Pokemon = (props) => {
 
   const generatePokemonJSX = () => {
     const { name, id, species, height, weight, types, sprites } = pokemon;
-    const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
+    const fullImageUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${id}.png`;
     const { front_default } = sprites;
     return (
-      <Typography variant="h1">
-        {`${id}.`} {toFirstCharUppercase(name)}
-        <img src={front_default} />
-      </Typography>
+      <>
+        <Typography variant="h1">
+          {`${id}.`} {toFirstCharUppercase(name)}
+          <img src={front_default} />
+        </Typography>
+        <img style={{ width: "300px", height: "300px" }} src={fullImageUrl} />
+        <Typography variant="h3">Pokemon Info</Typography>
+      </>
     );
   };
 
