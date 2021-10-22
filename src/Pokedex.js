@@ -44,7 +44,9 @@ const Pokedex = (props) => {
           newPokemonData[index + 1] = {
             id: index + 1,
             name: pokemon.name,
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              index + 1
+            }.png`,
           };
         });
         setPokemonData(newPokemonData);
@@ -53,7 +55,7 @@ const Pokedex = (props) => {
 
   const getPokemonCard = (pokemonId) => {
     console.log(pokemonData[`${pokemonId}`]);
-    const { id, name, sprite } = pokemonData[`${pokemonId}`];
+    const { id, name, sprite } = pokemonData[pokemonId];
 
     return (
       <Grid item xs={4} key={pokemonId}>
