@@ -49,6 +49,11 @@ const Pokedex = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [pokemonData, setPokemonData] = useState({});
+  const [filter, setFilter] = useState({});
+
+  const handleSearchChange = (e) => {
+    setFilter(e.target.value);
+  };
 
   useEffect(() => {
     axios
@@ -71,12 +76,10 @@ const Pokedex = (props) => {
   }, []);
 
   const getPokemonCard = (pokemonId) => {
-    console.log(pokemonData[pokemonId]);
     const { id, name, sprite } = pokemonData[pokemonId];
-
     return (
       <Grid item xs={4} key={pokemonId}>
-        <Card onClick={() => history.push(`/${pokemonId}`)}>
+        <Card onClick={() => history.push(`/${id}`)}>
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
@@ -98,6 +101,7 @@ const Pokedex = (props) => {
             <SearchIcon className={classes.searchIcon} />
             <TextField
               className={classes.searchInput}
+              onChange={handleSearchChange}
               label="Name or Number"
               variant="standard"
             />
@@ -107,8 +111,10 @@ const Pokedex = (props) => {
       </AppBar>
       {pokemonData ? (
         <Grid container spacing={2} className={classes.pokedexContainer}>
-          {Object.keys(pokemonData).map((pokemonId) =>
-            getPokemonCard(pokemonId)
+          {Object.keys(pokemonData).map(
+            (pokemonId) =>
+              pokemonData[pokemonId].name.includes(filter) &&
+              getPokemonCard(pokemonId)
           )}
         </Grid>
       ) : (
