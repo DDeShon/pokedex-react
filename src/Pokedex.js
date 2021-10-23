@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mockData from "./mockData";
 import { toFirstCharUppercase } from "./constants";
 import {
   AppBar,
@@ -54,7 +53,7 @@ const Pokedex = (props) => {
   }, []);
 
   const getPokemonCard = (pokemonId) => {
-    console.log(pokemonData[`${pokemonId}`]);
+    console.log(pokemonData[pokemonId]);
     const { id, name, sprite } = pokemonData[pokemonId];
 
     return (
