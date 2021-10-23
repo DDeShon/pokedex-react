@@ -4,8 +4,17 @@ import { Typography, Link, CircularProgress, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import axios from "axios";
 
+const useStyles = makeStyles((theme) => ({
+  pokemonContainer: {
+    display: "grid",
+    textAlign: "center",
+    justifyItems: "center",
+  },
+}));
+
 const Pokemon = (props) => {
   const { history, match } = props;
+  const classes = useStyles();
   const { params } = match;
   const { pokemonId } = params;
   const [pokemon, setPokemon] = useState(undefined);
@@ -27,7 +36,7 @@ const Pokemon = (props) => {
     const fullImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
     const { front_default } = sprites;
     return (
-      <>
+      <div className={classes.pokemonContainer}>
         <Typography variant="h1">
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} />
@@ -46,7 +55,7 @@ const Pokemon = (props) => {
           const { name } = type;
           return <Typography key={name}> {`${name}`}</Typography>;
         })}
-      </>
+      </div>
     );
   };
 
@@ -55,7 +64,9 @@ const Pokemon = (props) => {
       {pokemon === undefined && <CircularProgress />}
       {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
       {pokemon === false && <Typography> Pokemon not found</Typography>}
-
+      <br />
+      <br />
+      <br />
       {pokemon !== undefined && (
         <Button variant="contained" onClick={() => history.push("/")}>
           back to pokedex
