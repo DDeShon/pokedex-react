@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mockData from "./mockData";
 import { toFirstCharUppercase } from "./constants";
 import { Typography, Link, CircularProgress, Button } from "@material-ui/core";
 import axios from "axios";
