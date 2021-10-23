@@ -60,7 +60,7 @@ const Pokemon = (props) => {
   };
 
   return (
-    <>
+    <div className={classes.pokemonContainer}>
       {pokemon === undefined && <CircularProgress />}
       {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
       {pokemon === false && <Typography> Pokemon not found</Typography>}
@@ -72,7 +72,7 @@ const Pokemon = (props) => {
           back to pokedex
         </Button>
       )}
-    </>
+    </div>
   );
 };
 
