@@ -23,7 +23,7 @@ const Pokemon = (props) => {
 
   const generatePokemonJSX = (pokemon) => {
     const { name, id, species, height, weight, types, sprites } = pokemon;
-    const fullImageUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/00${id}.png`;
+    const fullImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
     const { front_default } = sprites;
     return (
       <>
