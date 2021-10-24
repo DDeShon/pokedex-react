@@ -43,13 +43,15 @@ const Pokemon = (props) => {
         </Typography>
         <img style={{ width: "400px", height: "400px" }} src={fullImageUrl} />
         <Typography variant="h3">Pokemon Info</Typography>
-        <Typography>
+        <Typography variant="h5">
           {"Species: "}
           <Link href={species.url}>{species.name} </Link>
         </Typography>
-        <Typography>Height: {height} </Typography>
-        <Typography>Weight: {weight} </Typography>
-        <Typography variant="h6"> Types: </Typography>
+        <br />
+        <Typography variant="h5">Height: {height} </Typography>
+        <Typography variant="h5">Weight: {weight} </Typography>
+        <br />
+        <Typography variant="h5"> Types: </Typography>
         {types.map((typeInfo) => {
           const { type } = typeInfo;
           const { name } = type;
