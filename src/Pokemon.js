@@ -45,7 +45,7 @@ const Pokemon = (props) => {
         <Typography variant="h3">Pokemon Info</Typography>
         <Typography variant="h5">
           {"Species: "}
-          <Link href={species.url}>{species.name} </Link>
+          <Link href={species.url}>{toFirstCharUppercase(name)} </Link>
         </Typography>
         <br />
         <Typography variant="h5">Height: {height} </Typography>
